@@ -7,6 +7,9 @@ This code was written with PyTorch<0.4, but most people must be using PyTorch>=0
 
 ****
 
+## 写在最前
+原作者SaoYan编写至今已有数年时间，大部分工具包已更新多个版本，故
+
 ## How to run
 
 ### 1. Dependences
