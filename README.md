@@ -7,19 +7,19 @@ This code was written with PyTorch<0.4, but most people must be using PyTorch>=0
 
 ****
 
-## 写在最前
-原作者SaoYan编写至今已有数年时间，大部分工具包已更新多个版本，故
+## 写在最前(未完正在编辑)
+原作者SaoYan编写至今已有数年时间，大部分工具包已更新多个版本，部分代码及函数发生了变化，故更改了部分代码，重新提供了一份依赖清单：
+### Dependences
+* Python(3.8)
+* [PyTorch](http://pytorch.org/)(1.6.0)
+* [torchvision](https://github.com/pytorch/vision)(0.10.0)
+* opencv-python()
+* hdf5(http://www.h5py.org/)()
+* [tensorboardX](https://github.com/lanpa/tensorboard-pytorch) ()
 
 ## How to run
 
-### 1. Dependences
-* [PyTorch](http://pytorch.org/)(<0.4)
-* [torchvision](https://github.com/pytorch/vision)
-* OpenCV for Python
-* [HDF5 for Python](http://www.h5py.org/)
-* [tensorboardX](https://github.com/lanpa/tensorboard-pytorch) (TensorBoard for PyTorch)
-
-### 2. Train DnCNN-S (DnCNN with known noise level)
+### 1. Train DnCNN-S (DnCNN with known noise level)
 ```
 python train.py --preprocess True --num_of_layers 17 --mode S --noiseL 25 --val_noiseL 25
 ```
@@ -28,26 +28,18 @@ python train.py --preprocess True --num_of_layers 17 --mode S --noiseL 25 --val_
 * According to the paper, DnCNN-S has 17 layers.
 * *noiseL* is used for training and *val_noiseL* is used for validation. They should be set to the same value for unbiased validation. You can set whatever noise level you need.
 
-### 3. Train DnCNN-B (DnCNN with blind noise level)
+### 2. Train DnCNN-B (DnCNN with blind noise level)
 ```
-python train.py \
-  --preprocess True \
-  --num_of_layers 20 \
-  --mode B \
-  --val_noiseL 25
+python train.py --preprocess True --num_of_layers 20 --mode B --val_noiseL 25
 ```
 **NOTE**
 * If you've already built the training and validation dataset (i.e. train.h5 & val.h5 files), set *preprocess* to be False.
 * According to the paper, DnCNN-B has 20 layers.
 * *noiseL* is ingnored when training DnCNN-B. You can set *val_noiseL* to whatever you need.
 
-### 4. Test
+### 3. Test
 ```
-python test.py \
-  --num_of_layers 17 \
-  --logdir logs/DnCNN-S-15 \
-  --test_data Set12 \
-  --test_noiseL 15
+python test.py --num_of_layers 17 --logdir logs/DnCNN-S-15 --test_data Set12 --test_noiseL 15
 ```
 **NOTE**
 * Set *num_of_layers* to be 17 when testing DnCNN-S models. Set *num_of_layers* to be 20 when testing DnCNN-B model.
