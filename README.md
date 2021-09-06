@@ -18,12 +18,7 @@ This code was written with PyTorch<0.4, but most people must be using PyTorch>=0
 
 ### 2. Train DnCNN-S (DnCNN with known noise level)
 ```
-python train.py \
-  --preprocess True \
-  --num_of_layers 17 \
-  --mode S \
-  --noiseL 25 \
-  --val_noiseL 25
+python train.py --preprocess True --num_of_layers 17 --mode S --noiseL 25 --val_noiseL 25
 ```
 **NOTE**
 * If you've already built the training and validation dataset (i.e. train.h5 & val.h5 files), set *preprocess* to be False.
